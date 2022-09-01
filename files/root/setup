@@ -16,7 +16,7 @@ expect {
     "Quartus Prime Lite Edition (Free)  \\\[Y/n\\\] :" { send "y\r"; exp_continue }
     "Quartus Prime Lite Edition (Free)  - Quartus Prime Help" { send "n\r"; exp_continue }
     "Quartus Prime Lite Edition (Free)  - Devices" { send "y\r"; exp_continue }
-    "ModelSim - Intel FPGA Starter Edition (Free)" { send "n\r"; exp_continue }
+    "ModelSim - Intel FPGA Starter Edition (Free)" { send "y\r"; exp_continue }
     "ModelSim - Intel FPGA Edition" { send "n\r"; exp_continue }
     "Is the selection above correct? \\\[Y/n\\\]:" { send "y\r"; exp_continue }
     "Create shortcuts on Desktop \\\[Y/n\\\]:" { send "n\r"; exp_continue }
