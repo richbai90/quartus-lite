@@ -66,13 +66,13 @@ RUN chmod -R 755 /opt/intelFPGA_lite/ && \
     curl -O http://ftp.us.debian.org/debian/pool/main/libx/libxext/libxext-dev_1.3.3-1_i386.deb; \
     dpkg --install libxext-dev_1.3.3-1_i386.deb; \
     apt-get install -yf && \
-    apt-get install -y libxft-dev:i386 && \
+    apt-get install -y libxft-dev:i386 libstdc++6:i386 && \
     rm *.deb
 
-ENV LD_LIBRARY_PATH=/opt/intelFPGA_lite/20.1/quartus/linux64/
-ENV LD_PRELOAD=/usr/lib/libtcmalloc_minimal.so.4
+ENV PATH=/opt/intelFPGA_lite/20.1/modelsim_ase/bin/:$PATH
 ENV LC_ALL="en_US.UTF-8"
+RUN echo "env LD_LIBRARY_PATH=/opt/intelFPGA_lite/20.1/quartus/linux64/ LD_PRELOAD=/usr/lib/libtcmalloc_minimal.so.4 quartus" > /usr/bin/verilog && chmod +x /usr/bin/verilog
 USER quartus
 WORKDIR /home/quartus
 VOLUME /home/quartus
-CMD quartus
+CMD verilog
